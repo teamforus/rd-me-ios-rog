@@ -1,0 +1,221 @@
+PODS:
+  - Alamofire (4.7.0)
+  - AlertBar (0.4.2)
+  - AssistantKit (0.4.1)
+  - BigInt.swift (1.0.0)
+  - BWWalkthrough (2.1.2)
+  - Crashlytics (3.10.2):
+    - Fabric (~> 1.7.7)
+  - CryptoSwift (0.10.0)
+  - Fabric (1.7.7)
+  - Firebase/Core (5.9.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.2.0)
+  - Firebase/CoreOnly (5.9.0):
+    - FirebaseCore (= 5.1.4)
+  - Firebase/Messaging (5.9.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.1.2)
+  - FirebaseAnalytics (5.2.0):
+    - FirebaseCore (~> 5.1)
+    - FirebaseInstanceID (~> 3.2)
+    - GoogleAppMeasurement (~> 5.2)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.1.4):
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseInstanceID (3.2.2):
+    - FirebaseCore (~> 5.1)
+    - GoogleUtilities/Environment (~> 5.3)
+    - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseMessaging (3.1.2):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleUtilities/Reachability (~> 5.2)
+    - Protobuf (~> 3.1)
+  - Geth (1.8.10)
+  - GoogleAppMeasurement (5.2.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (5.3.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.3.0)
+  - GoogleUtilities/Logger (5.3.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.3.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.3.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.3.0)"
+  - GoogleUtilities/Reachability (5.3.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (5.3.0):
+    - GoogleUtilities/Logger
+  - IQKeyboardManagerSwift (5.0.7)
+  - ISHPullUp (1.0.7)
+  - JSONCodable (3.0.1)
+  - MarqueeLabel/Swift (3.2.0)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - NVActivityIndicatorView (4.4.0):
+    - NVActivityIndicatorView/Presenter (= 4.4.0)
+  - NVActivityIndicatorView/Presenter (4.4.0)
+  - Presentr (1.3)
+  - PromiseKit/CorePromise (6.2.8)
+  - Protobuf (3.6.1)
+  - PWSwitch (1.1.2)
+  - QRCodeReader.swift (9.0.1)
+  - ReachabilitySwift (4.1.0)
+  - ScrollableSegmentedControl (1.3.0)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - secp256k1.swift (0.1.4)
+  - SkyFloatingLabelTextField (3.4.0)
+  - SwipeCellKit (2.0.1)
+  - UICheckbox.Swift (1.0.0)
+  - Web3 (0.1.1):
+    - Web3/Core (= 0.1.1)
+    - Web3/HTTPExtension (= 0.1.1)
+  - Web3/Core (0.1.1):
+    - BigInt.swift (~> 1.0)
+    - CryptoSwift (~> 0.8)
+    - secp256k1.swift (~> 0.1)
+  - Web3/HTTPExtension (0.1.1):
+    - Web3/Core
+  - Web3/PromiseKit (0.1.1):
+    - PromiseKit/CorePromise (~> 6.0)
+    - Web3/Core
+  - web3swift (0.0.9):
+    - CryptoSwift
+    - Geth
+
+DEPENDENCIES:
+  - Alamofire
+  - AlertBar
+  - AssistantKit
+  - BWWalkthrough
+  - Crashlytics
+  - Fabric
+  - Firebase/Core
+  - Firebase/Messaging
+  - IQKeyboardManagerSwift
+  - ISHPullUp
+  - JSONCodable
+  - MarqueeLabel/Swift
+  - NVActivityIndicatorView
+  - Presentr
+  - PWSwitch
+  - QRCodeReader.swift
+  - ReachabilitySwift
+  - ScrollableSegmentedControl (~> 1.3.0)
+  - SDWebImage
+  - SkyFloatingLabelTextField
+  - SwipeCellKit
+  - UICheckbox.Swift
+  - Web3
+  - Web3/PromiseKit
+  - web3swift (from `https://github.com/MercuryProtocol/web3.swift.git`, branch `master`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlertBar
+    - AssistantKit
+    - BigInt.swift
+    - BWWalkthrough
+    - Crashlytics
+    - CryptoSwift
+    - Fabric
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - Geth
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - IQKeyboardManagerSwift
+    - ISHPullUp
+    - JSONCodable
+    - MarqueeLabel
+    - nanopb
+    - NVActivityIndicatorView
+    - Presentr
+    - PromiseKit
+    - Protobuf
+    - PWSwitch
+    - QRCodeReader.swift
+    - ReachabilitySwift
+    - ScrollableSegmentedControl
+    - SDWebImage
+    - secp256k1.swift
+    - SkyFloatingLabelTextField
+    - SwipeCellKit
+    - UICheckbox.Swift
+    - Web3
+
+EXTERNAL SOURCES:
+  web3swift:
+    :branch: master
+    :git: https://github.com/MercuryProtocol/web3.swift.git
+
+CHECKOUT OPTIONS:
+  web3swift:
+    :commit: fe0c3047cc9f808774c6172afe3cb126715adf49
+    :git: https://github.com/MercuryProtocol/web3.swift.git
+
+SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  AlertBar: 0512ccfdc339dbe22c93799682308e93c784358f
+  AssistantKit: 9ee71039dffa9dc050de945258e50e3e6bb20d5c
+  BigInt.swift: 1e0ddf08d82166e72dfb0fa8d40301d273081afc
+  BWWalkthrough: 6b18dc688ff6b7168383fee07fe199ccaad7e9f7
+  Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
+  CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
+  Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
+  Firebase: 383fa29aca93e371cab776b48a5c66544d3c2003
+  FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
+  FirebaseCore: 2a84b6b325792a4319ef71ee18819dcba08d2fd7
+  FirebaseInstanceID: 78ba376fcd5b94c001f9999b2cbd3d1f1e56e78d
+  FirebaseMessaging: d6feeb06218d2675b4149b0ada925a6b707a74cf
+  Geth: 0e529ddf97286eca646ab355c080ee0a2337a544
+  GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
+  GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
+  IQKeyboardManagerSwift: 30fb3a61de1af53a95e02b80fb54ed0a19d5ede5
+  ISHPullUp: eaa91bef06270264e1f923bc764705173d341495
+  JSONCodable: bd8616ae881befe2b82fbbf56d98b2dd377ac662
+  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
+  Presentr: 3f0825a42cb32ecd8fc6b6d0b0de87d7d0b42482
+  PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
+  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  PWSwitch: 399db6ef5dd8417f9a1e9f82cb70602f10a6c38f
+  QRCodeReader.swift: 96292a5612fbc2fd9a0b26f93fa5164c8d02f59d
+  ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
+  ScrollableSegmentedControl: a90ae91537fd670a46b177301d035223e3bd149e
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
+  SkyFloatingLabelTextField: 703aa1420b697392b1e7dba25571180dde018477
+  SwipeCellKit: 76888d93d1843dc568fdf38fff21b15dbbcf6b28
+  UICheckbox.Swift: 85715689206fac5bae38b308f19c2a3e00442c3b
+  Web3: 1f0c38c8508b8487948af1cb597653b018f4b5d3
+  web3swift: 9cf4ccef0c7f7e9f9abb3bc5867789b928800af6
+
+PODFILE CHECKSUM: 2ec7bfddd4a534ceca84aa83d617fa9bc5001b50
+
+COCOAPODS: 1.6.1
