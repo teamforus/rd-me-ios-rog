@@ -45,7 +45,7 @@ class MAQRCodeScannerViewController: HSScanViewController , HSScanViewController
                             
                             // validate record with normal json format
                         }else  if jsonArray["type"] as! String == "auth_token_share" {
-                            self.authorizeToken(token: jsonArray["value"] as! String)
+                            self.shareValidationRecord(code: jsonArray["value"] as! String)
                             
                             // validate record with normal json format
                         }else{
