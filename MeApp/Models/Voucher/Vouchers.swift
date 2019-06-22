@@ -195,7 +195,7 @@ class VoucherRequest {
     static func getVoucherList(completion: @escaping ((NSMutableArray, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         DispatchQueue.global(qos: .userInteractive).async {
             Alamofire.request(BaseURL.baseURL(url: "platform/vouchers"), method: .get, parameters:nil,encoding: JSONEncoding.default, headers: headers).responseJSON {
@@ -235,7 +235,7 @@ class VoucherRequest {
     static func getProvider(identityAdress: String,completion: @escaping ((Voucher, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         Alamofire.request(BaseURL.baseURL(url: "platform/vouchers/"+identityAdress+"/provider"), method: .get, parameters:nil,encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
@@ -268,7 +268,7 @@ class VoucherRequest {
     static func sendEmailToVoucher(address: String,completion: @escaping (( Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         Alamofire.request(BaseURL.baseURL(url: "platform/vouchers/"+address+"//send-email"), method: .post, parameters:nil,encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in

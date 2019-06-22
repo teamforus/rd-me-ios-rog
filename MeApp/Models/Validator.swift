@@ -117,7 +117,7 @@ class ValidatorsRequest {
     static func getValidatorList(completion: @escaping ((NSMutableArray, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         Alamofire.request(BaseURL.baseURL(url: "platform/validators"), method: .get, parameters:nil,encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
@@ -144,7 +144,7 @@ class ValidatorsRequest {
     static func getValidatorRequestList(uuid:String,completion: @escaping ((NSMutableArray, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         Alamofire.request(BaseURL.baseURL(url: "platform/record-validations"+uuid), method: .get, parameters:nil,encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
@@ -171,7 +171,7 @@ class ValidatorsRequest {
     static func createValidationRequest(parameters: Parameters, completion: @escaping ((Validators, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         
         

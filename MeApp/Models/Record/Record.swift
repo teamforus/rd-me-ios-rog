@@ -110,7 +110,7 @@ class RecordsRequest {
     static func getRecordsList(completion: @escaping ((NSMutableArray, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         Alamofire.request(BaseURL.baseURL(url: "identity/records"), method: .get, parameters:nil,encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
@@ -140,7 +140,7 @@ class RecordsRequest {
     static func createRecord(parameters: Parameters, completion: @escaping ((Record, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         
         
@@ -163,7 +163,7 @@ class RecordsRequest {
     static func createValidationTokenRecord(parameters: Parameters, completion: @escaping ((RecordValidation, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         
         
@@ -186,7 +186,7 @@ class RecordsRequest {
     static func readValidationTokenRecord(token: String, completion: @escaping ((RecordValidation, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         
         
@@ -209,7 +209,7 @@ class RecordsRequest {
     static func aproveValidationTokenRecord(token: String, completion: @escaping ((Response, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         
         
@@ -232,7 +232,7 @@ class RecordsRequest {
     static func deleteRecord(recordId: Int, completion: @escaping ((Response, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         
         

@@ -31,13 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         
         #endif
-        
+        UserShared.shared.accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJhYjY3OGM3YTYyY2YyOWQ0NzU2Y2E0OGU1OWE5MjEwOGUwZDQ5YWFhMDNjYjE3OTUwMmI1Mzc2NWUzZWQ1OTYxZGFjMWZkYjdiM2RhYmY4In0.eyJhdWQiOiIxIiwianRpIjoiMmFiNjc4YzdhNjJjZjI5ZDQ3NTZjYTQ4ZTU5YTkyMTA4ZTBkNDlhYWEwM2NiMTc5NTAyYjUzNzY1ZTNlZDU5NjFkYWMxZmRiN2IzZGFiZjgiLCJpYXQiOjE1NjExOTc3NzMsIm5iZiI6MTU2MTE5Nzc3MywiZXhwIjoxNTkyODIwMTczLCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.kvVvRYXIg3qrh0QjPHae7A_Q73kVh3Jz0QgnMRNcK0EnhfX1LDKVYCNWhVhKOntp9FGjFzhptElotN5yNPWMzQ"
         UIApplication.shared.applicationIconBadgeNumber = 0
-        if  self.existCurrentUser() {
-        let storyboard:UIStoryboard = UIStoryboard(name: "Tabs", bundle: nil)
-        let rootViewController:UIViewController = storyboard.instantiateViewController(withIdentifier: "walet") as UIViewController
-        self.window?.rootViewController = rootViewController
-        }
+//        if  self.existCurrentUser() {
+//        let storyboard:UIStoryboard = UIStoryboard(name: "Tabs", bundle: nil)
+//        let rootViewController:UIViewController = storyboard.instantiateViewController(withIdentifier: "walet") as UIViewController
+//        self.window?.rootViewController = rootViewController
+//        }
         
 //        FirebaseApp.configure()
 //        Messaging.messaging().delegate = self

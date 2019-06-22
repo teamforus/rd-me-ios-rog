@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import IQKeyboardManagerSwift
 import Reachability
+import SkyFloatingLabelTextField
 
 class MATextViewController: MABaseViewController, UITextViewDelegate {
     @IBOutlet weak var textUITextView: UITextView!
@@ -17,6 +18,7 @@ class MATextViewController: MABaseViewController, UITextViewDelegate {
     @IBOutlet weak var selectedType: ShadowButton!
     @IBOutlet weak var editUIButton: UIButton!
     @IBOutlet weak var clearUIButton: UIButton!
+    @IBOutlet weak var recordTypeField: SkyFloatingLabelTextField!
     var recordType: RecordType!
     let reachablity = Reachability()!
     var recordCategory: RecordCategory!
@@ -52,24 +54,31 @@ class MATextViewController: MABaseViewController, UITextViewDelegate {
     }
     
     @IBAction func submit(_ sender: Any) {
-        if self.recordType.name.contains("E-mail"){
-            if !Validation.validateEmail(textUITextView.text) {
-                AlertController.showWarning(withText: "E-mail is not valid", vc: self)
-                return
-            }
-        }
+        //        if self.recordType.name.contains("E-mail"){
+        //            if !Validation.validateEmail(textUITextView.text) {
+        //                AlertController.showWarning(withText: "E-mail is not valid", vc: self)
+        //                return
+        //            }
+        //        }
         if reachablity.connection != .none{
-            let parameters: Parameters = ["type" : recordType.key,
-                                          "value" : textUITextView.text]
-            RecordsRequest.createRecord(parameters: parameters, completion: { (response, statusCode) in
-                if statusCode == 401{
-//                    self.logOut()
+            
+            if textUITextView.text != "" && recordTypeField.text != "" {
+                
+                let parameters: Parameters = ["type" : recordTypeField.text ?? "",
+                                              "value" : textUITextView.text]
+                RecordsRequest.createRecord(parameters: parameters, completion: { (response, statusCode) in
+                    if statusCode == 401{
+                        //                    self.logOut()
+                        AlertController.showError(vc:self)
+                        return
+                    }
+                    
+                    NotificationCenter.default.post(name: Notification.Name("CLOSESLIDEPAGE"), object: nil)
+                }) { (error) in
                     AlertController.showError(vc:self)
-                    return
                 }
-                NotificationCenter.default.post(name: Notification.Name("CLOSESLIDEPAGE"), object: nil)
-            }) { (error) in
-                AlertController.showError(vc:self)
+            }else {
+                AlertController.showWarning(withText: "Please fill all fields.", vc: self)
             }
         }else {
             AlertController.showInternetUnable(vc: self)
@@ -92,10 +101,10 @@ class MATextViewController: MABaseViewController, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if textView.text.count != 0{
             clearUIButton.isHidden = false
-//            editUIButton.setTitle("Confirm", for: .normal)
+            //            editUIButton.setTitle("Confirm", for: .normal)
         }else {
             clearUIButton.isHidden = true
-//            editUIButton.setTitle("Edit", for: .normal)
+            //            editUIButton.setTitle("Edit", for: .normal)
         }
     }
     

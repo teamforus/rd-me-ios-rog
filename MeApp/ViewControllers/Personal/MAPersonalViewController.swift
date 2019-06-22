@@ -61,6 +61,9 @@ class MAPersonalViewController: MABaseViewController, BWWalkthroughViewControlle
                 return
             }
             self.recordTypeList.addObjects(from: response as! [Any])
+            
+          
+            
         }) { (error) in
             AlertController.showError(vc:self)
         }
@@ -74,6 +77,12 @@ class MAPersonalViewController: MABaseViewController, BWWalkthroughViewControlle
             }
             self.recordList.removeAllObjects()
             self.recordList.addObjects(from: response as! [Any])
+            
+            if self.recordList.count == 0 {
+                self.tableView.isHidden = true
+            }else {
+                self.tableView.isHidden = false
+            }
             self.tableView.reloadData()
         }) { (error) in
             AlertController.showError(vc:self)
@@ -110,7 +119,7 @@ class MAPersonalViewController: MABaseViewController, BWWalkthroughViewControlle
         
         walkthrough.delegate = self
         walkthrough.scrollview.isScrollEnabled = false
-        walkthrough.add(viewController:pageOne)
+//        walkthrough.add(viewController:pageOne)
         walkthrough.add(viewController:pageTwo)
         
         self.present(walkthrough, animated: true, completion: nil)
@@ -139,11 +148,13 @@ extension MAPersonalViewController: UITableViewDelegate, UITableViewDataSource{
             cell.validationNumber.isHidden = true
         }
        
-        for recordType in recordTypeList{
-            if (recordType as! RecordType).key == record.key{
-                cell.cellTypeLabel.text = (recordType as! RecordType).name
-            }
-        }
+//        for recordType in recordTypeList{
+//            if (recordType as! RecordType).key == record.key{
+//                cell.cellTypeLabel.text = (recordType as! RecordType).name
+//            }
+//        }
+        
+        cell.cellTypeLabel.text = record.key.replacingOccurrences(of: "_", with: " ").capitalized
         cell.nameLabel.text = record.value
         return cell
     }

@@ -72,7 +72,7 @@ class TransactionVoucherRequest {
     static func getTransaction(identityAdress: String,completion: @escaping ((NSMutableArray, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         Alamofire.request(BaseURL.baseURL(url: "platform/vouchers/" + identityAdress + "/transactions"), method: .get, parameters:nil,encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
@@ -104,7 +104,7 @@ class TransactionVoucherRequest {
     static func makeTransaction(parameters: Parameters,identityAdress: String,completion: @escaping ((Transactions, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         Alamofire.request(BaseURL.baseURL(url: "platform/vouchers/"+identityAdress+"/transactions"), method: .post, parameters:parameters ,encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in

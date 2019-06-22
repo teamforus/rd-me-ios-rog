@@ -83,7 +83,7 @@ class ConfigRequest{
     static func getConfig(configType: String,completion: @escaping ((Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         
         Alamofire.request(BaseURL.baseURL(url: "platform/config/ios?ver="+configType), method: .get, parameters:nil ,encoding: JSONEncoding.default, headers: headers).responseJSON {

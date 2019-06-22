@@ -15,5 +15,6 @@ final class UserShared {
     
     static let shared = UserShared()
     var currentUser: User!
+    var accessToken: String!
     
 }

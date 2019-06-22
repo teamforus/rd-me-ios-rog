@@ -57,7 +57,7 @@ class AuthorizeTokenRequest {
     static func authorizeToken(parameter: Parameters, completion: @escaping ((Response, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         Alamofire.request(BaseURL.baseURL(url: "identity/proxy/authorize/token"), method: .post, parameters:parameter, encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
@@ -78,7 +78,7 @@ class AuthorizeTokenRequest {
     static func removeToken(parameter: Parameters, completion: @escaping (( Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",
-            "Authorization" : "Bearer \(UserShared.shared.currentUser.accessToken!)"
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
         ]
         Alamofire.request(BaseURL.baseURL(url: "platform/devices/delete-push"), method: .delete, parameters:parameter, encoding: JSONEncoding.default, headers: headers).responseData {
             response in

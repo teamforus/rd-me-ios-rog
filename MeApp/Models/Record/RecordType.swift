@@ -47,6 +47,7 @@ class RecordTypeRequest {
             response in
             switch response.result {
             case .success:
+                print(response.response)
                 if let json = response.result.value {
                     let recordTypeList: NSMutableArray = NSMutableArray()
                     if (json as AnyObject).count != 0{

@@ -16,6 +16,7 @@ import Speech
 import SwipeCellKit
 import UIKit
 import Presentr
+import ScrollableSegmentedControl
 
 enum WalletCase {
     case token
@@ -28,10 +29,11 @@ class WalletViewController: MABaseViewController, AppLockerDelegate, NVActivityI
     
     let reachability = Reachability()!
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var segmentView: UIView!
     var vouhers: NSMutableArray! = NSMutableArray()
     var activityIndicatorView: NVActivityIndicatorView!
     @IBOutlet var emptyTextLabe: UILabel!
+    @IBOutlet weak var segmentController: HBSegmentedControl!
+    @IBOutlet weak var segmentView: UIView!
     var firstTimeEnter: Bool!
     let presenter: Presentr = {
         let presenter = Presentr(presentationType: .alert)
@@ -55,7 +57,14 @@ class WalletViewController: MABaseViewController, AppLockerDelegate, NVActivityI
       //  } else {
             // Fallback on earlier versions
       //  }
-        
+         segmentController.items = ["Valuta", "Bezit", "Vouchers"]
+        segmentController.selectedIndex = 0
+        segmentController.font = UIFont(name: "GoogleSans-Medium", size: 14)
+        segmentController.unselectedLabelColor = #colorLiteral(red: 0.631372549, green: 0.6509803922, blue: 0.6784313725, alpha: 1)
+        segmentController.selectedLabelColor = #colorLiteral(red: 0.2078431373, green: 0.3921568627, blue: 0.968627451, alpha: 1)
+        segmentController.addTarget(self, action: #selector(self.segmentSelected(sender:)), for: .valueChanged)
+        segmentController.borderColor = .clear
+        segmentView.layer.cornerRadius = 8.0
         if !UserDefaults.standard.bool(forKey: "isStartFromScanner"){
             if UserDefaults.standard.string(forKey: ALConstants.kPincode) != "" && UserDefaults.standard.string(forKey: ALConstants.kPincode) != nil {
                 var appearance = ALAppearance()
@@ -71,7 +80,7 @@ class WalletViewController: MABaseViewController, AppLockerDelegate, NVActivityI
         //        Web3Provider.getBalance()
         //        Service.sendContract { _, _ in
         //        }
-        getCurrentUser()
+//        getCurrentUser()
         
         if firstTimeEnter != nil{
             let popupTransction =  MACrashConfirmViewController(nibName: "MACrashConfirmViewController", bundle: nil)
@@ -85,8 +94,8 @@ class WalletViewController: MABaseViewController, AppLockerDelegate, NVActivityI
         
         let size = CGSize(width: 60, height: 60)
         
-        startAnimating(size, message: "Loading...".localized(), type: NVActivityIndicatorType(rawValue: 32)!, color: #colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1), textColor: .black, fadeInAnimation: nil)
-        getVoucherList()
+//        startAnimating(size, message: "Loading...".localized(), type: NVActivityIndicatorType(rawValue: 32)!, color: #colorLiteral(red: 0.1918309331, green: 0.3696506619, blue: 0.9919955134, alpha: 1), textColor: .black, fadeInAnimation: nil)
+//        getVoucherList()
         
         if UserDefaults.standard.bool(forKey: "ISENABLESENDADDRESS"){
             IndentityRequest.requestIndentiy(completion: { (identityAddress, statuCode) in
@@ -103,7 +112,7 @@ class WalletViewController: MABaseViewController, AppLockerDelegate, NVActivityI
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         setStatusBarStyle(.default)
-        getVoucherList()
+//        getVoucherList()
         let notifMessage: [String: Any] = [
             "to" : "fcm token you need to send the notification",
             "notification" :
@@ -111,6 +120,13 @@ class WalletViewController: MABaseViewController, AppLockerDelegate, NVActivityI
         ]
         
         sendPushNotification(notData: notifMessage)
+        
+        
+    }
+    
+    @objc func segmentSelected(sender:HBSegmentedControl) {
+       
+        
     }
     
     @objc fileprivate func sendPushNotificationToke(notification: NSNotification){
@@ -133,7 +149,7 @@ class WalletViewController: MABaseViewController, AppLockerDelegate, NVActivityI
                 }
             }
             if self.vouhers.count == 0 {
-                self.emptyTextLabe.isHidden = false
+                self.emptyTextLabe.isHidden = true
             } else {
                 self.emptyTextLabe.isHidden = true
             }
@@ -173,25 +189,25 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource, Swip
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vouhers.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MAWaletVoucherTableViewCell
         cell.selectionStyle = .none
-        cell.voucher = vouhers[indexPath.row] as? Voucher
+//        cell.voucher = vouhers[indexPath.row] as? Voucher
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let voucher = vouhers[indexPath.row] as! Voucher
-        if voucher.product != nil {
-            performSegue(withIdentifier: "goToVoucherProduct", sender: nil)
-        } else {
-            performSegue(withIdentifier: "goToKindPaket", sender: nil)
-        }
-        tableView.deselectRow(at: indexPath, animated: false)
+//        let voucher = vouhers[indexPath.row] as! Voucher
+//        if voucher.product != nil {
+//            performSegue(withIdentifier: "goToVoucherProduct", sender: nil)
+//        } else {
+//            performSegue(withIdentifier: "goToKindPaket", sender: nil)
+//        }
+//        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     // MARK: SwipeTableViewCellDelegate
