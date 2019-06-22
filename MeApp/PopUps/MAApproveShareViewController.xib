@@ -21,7 +21,11 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MAApproveShareViewController" customModule="Me" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MAApproveShareViewController" customModule="Me" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="dqb-mN-nvB" id="Qvq-9R-t9D"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dqb-mN-nvB" customClass="CustomCornerUIView" customModule="Me" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="335" height="358"/>
