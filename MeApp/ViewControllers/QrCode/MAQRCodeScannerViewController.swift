@@ -180,29 +180,13 @@ class MAQRCodeScannerViewController: HSScanViewController , HSScanViewController
 //                    }))
 //                    self.present(alert, animated: true)
                     
-                   let alert = UIAlertController(title: "Share", message: "Share your record!", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (action) in
-                        RecordsRequest.shareValidationTokenRecord(token: code, completion: { ( statusCode) in
-                            
-                            self.scanWorker.stop()
-                            let alert: UIAlertController
-                            alert = UIAlertController(title: "Success".localized(), message: "A record has been shared!", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                                self.scanWorker.start()
-                            }))
-                        }, failure: { (error) in
-                            self.scanWorker.stop()
-                            let alert: UIAlertController
-                            alert = UIAlertController(title: "Error!".localized(), message: "Unknown QR-code!".localized(), preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                                self.scanWorker.start()
-                            }))
-                        })
-                    }))
-                    alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
-                        self.scanWorker.start()
-                    }))
-                    self.present(alert, animated: true)
+                    let popupTransction =  MAApproveShareViewController(nibName: "MAApproveShareViewController", bundle: nil)
+                    popupTransction.delegate = self
+                    self.presenter.presentationType = .popup
+                    self.presenter.transitionType = nil
+                    self.presenter.dismissTransitionType = nil
+                    self.presenter.keyboardTranslationType = .compress
+                    self.customPresentViewController(self.presenter, viewController: popupTransction, animated: true, completion: nil)
                 }
             }, failure: { (error) in
                 AlertController.showError(vc:self)
@@ -371,4 +355,11 @@ extension UIViewController {
         ScanPermission.goToSystemSetting()
     }
     
+}
+
+extension MAQRCodeScannerViewController: MAApproveShareViewControllerDelegate {
+    
+    func share() {
+        self.scanWorker.start()
+    }
 }
