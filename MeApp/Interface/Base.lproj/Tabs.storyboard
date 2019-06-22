@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c0d-Ce-cj1">
-                                <rect key="frame" x="0.0" y="212" width="375" height="455"/>
+                                <rect key="frame" x="0.0" y="136" width="375" height="531"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
@@ -329,14 +329,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wallet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNC-xq-rF0">
-                                <rect key="frame" x="20" y="84" width="197" height="49"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wallet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNC-xq-rF0">
+                                <rect key="frame" x="20" y="40" width="197" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GoogleSans-Bold" family="Google Sans" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay3-GT-PDy" customClass="ShadowButton" customModule="Me" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ay3-GT-PDy" customClass="ShadowButton" customModule="Me" customModuleProvider="target">
                                 <rect key="frame" x="311" y="84" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -348,17 +348,17 @@
                                     <segue destination="UpV-uM-8ja" kind="presentation" id="6Cc-Lj-Ogk"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userpick" translatesAutoresizingMaskIntoConstraints="NO" id="Q1E-CJ-4LA" customClass="RoundImageView" customModule="Me" customModuleProvider="target">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userpick" translatesAutoresizingMaskIntoConstraints="NO" id="Q1E-CJ-4LA" customClass="RoundImageView" customModule="Me" customModuleProvider="target">
                                 <rect key="frame" x="311" y="84" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3UT-Bf-lzM">
-                                <rect key="frame" x="19" y="144" width="338" height="50"/>
+                                <rect key="frame" x="19" y="49" width="338" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vtq-im-fmu" customClass="HBSegmentedControl" customModule="Me" customModuleProvider="target">
-                                <rect key="frame" x="23" y="148" width="330" height="42"/>
+                                <rect key="frame" x="23" y="53" width="330" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -463,11 +463,11 @@
             </objects>
             <point key="canvasLocation" x="820" y="211"/>
         </scene>
-        <!--Eigendom-->
+        <!--Eigenschappen-->
         <scene sceneID="BPr-tX-tBw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="98d-kJ-Qib" customClass="HiddenNavBarNavigationController" customModule="Me" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Eigendom" image="wallet" id="0sK-og-sJQ">
+                    <tabBarItem key="tabBarItem" title="Eigenschappen" image="wallet" id="0sK-og-sJQ">
                         <color key="badgeColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -505,12 +505,12 @@
     </scenes>
     <resources>
         <image name="Resting" width="210" height="210"/>
-        <image name="eth" width="16" height="16"/>
+        <image name="eth" width="52" height="52"/>
         <image name="homeIcon" width="17" height="16"/>
         <image name="iconGrey" width="30" height="26"/>
         <image name="records" width="30" height="26"/>
-        <image name="rectangle" width="16" height="16"/>
-        <image name="rectangleRed" width="16" height="16"/>
+        <image name="rectangle" width="10" height="7"/>
+        <image name="rectangleRed" width="9" height="7"/>
         <image name="userpick" width="40" height="40"/>
         <image name="voucherIcon" width="16" height="16"/>
         <image name="wallet" width="30" height="26"/>

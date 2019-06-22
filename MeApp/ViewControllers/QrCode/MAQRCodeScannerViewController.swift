@@ -40,8 +40,16 @@ class MAQRCodeScannerViewController: HSScanViewController , HSScanViewController
                             self.getProviderConfirm(address: jsonArray["value"] as! String)
                             
                             // validate record with normal json format
+                        }else  if jsonArray["type"] as! String == "access_token" {
+                            self.authorizeToken(token: jsonArray["value"] as! String)
+                            
+                            // validate record with normal json format
+                        }else  if jsonArray["type"] as! String == "auth_token_share" {
+                            self.authorizeToken(token: jsonArray["value"] as! String)
+                            
+                            // validate record with normal json format
                         }else{
-                            self.readValidationToken(code: jsonArray["value"] as! String)
+                            self.shareValidationRecord(code: jsonArray["value"] as! String)
                         }
                     } else {
                        self.scanWorker.stop()
@@ -147,6 +155,67 @@ class MAQRCodeScannerViewController: HSScanViewController , HSScanViewController
         }, failure: { (error) in
             self.scanWorker.start()
         })
+    }
+    
+    func shareValidationRecord(code:String){
+        self.scanWorker.stop()
+        
+        let alertController: UIAlertController = UIAlertController(title: "Login QR", message: "You sure you wan't to login this device?".localized() , preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "YES", style: .default, handler: { (action) in
+            let parameter: Parameters = ["auth_token" : code]
+            AuthorizeTokenRequest.authorizeToken(parameter: parameter, completion: { (response, statusCode) in
+                if response.success == nil {
+                    self.scanWorker.stop()
+                    let alert: UIAlertController
+                    alert = UIAlertController(title: "Error!".localized(), message: "Unknown QR-code!".localized(), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self.scanWorker.start()
+                    }))
+                    self.present(alert, animated: true)
+                }else{
+//                    let alert: UIAlertController
+//                    alert = UIAlertController(title: "Success!".localized(), message: "Scanning successfully!".localized(), preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+//                        self.scanWorker.start()
+//                    }))
+//                    self.present(alert, animated: true)
+                    
+                   let alert = UIAlertController(title: "Share", message: "Share your record!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (action) in
+                        RecordsRequest.shareValidationTokenRecord(token: code, completion: { ( statusCode) in
+                            
+                            self.scanWorker.stop()
+                            let alert: UIAlertController
+                            alert = UIAlertController(title: "Success".localized(), message: "A record has been shared!", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                self.scanWorker.start()
+                            }))
+                        }, failure: { (error) in
+                            self.scanWorker.stop()
+                            let alert: UIAlertController
+                            alert = UIAlertController(title: "Error!".localized(), message: "Unknown QR-code!".localized(), preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                self.scanWorker.start()
+                            }))
+                        })
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { (action) in
+                        self.scanWorker.start()
+                    }))
+                    self.present(alert, animated: true)
+                }
+            }, failure: { (error) in
+                AlertController.showError(vc:self)
+            })
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "NO", style: .cancel))
+        
+        self.present(alertController, animated: true)
+        
+            let alert: UIAlertController
+        
+        
     }
     
     func authorizeToken(token:String){

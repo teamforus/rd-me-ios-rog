@@ -183,6 +183,28 @@ class RecordsRequest {
         }
     }
     
+    static func shareValidationTokenRecord(token: String, completion: @escaping (( Int) -> Void), failure: @escaping ((Error) -> Void)){
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "Authorization" : "Bearer \(UserShared.shared.accessToken!)"
+        ]
+        
+        
+        Alamofire.request(BaseURL.baseURL(url: "identity/proxy/token/confirm/\(token)"), method: .post, parameters:nil ,encoding: JSONEncoding.default, headers: headers).responseJSON {
+            response in
+            switch response.result {
+            case .success:
+                if let json = response.result.value {
+                    completion( (response.response?.statusCode)!)
+                }
+                break
+            case .failure(let error):
+                
+                failure(error)
+            }
+        }
+    }
+    
     static func readValidationTokenRecord(token: String, completion: @escaping ((RecordValidation, Int) -> Void), failure: @escaping ((Error) -> Void)){
         let headers: HTTPHeaders = [
             "Accept": "application/json",

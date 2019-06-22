@@ -66,11 +66,11 @@ public class HSDefaultScanView: UIView, HSScanViewProtocol {
         
         self.addSubview(label)
         
-        let button = UIButton.init(frame: CGRect(x: self.frame.width - 40, y: 50, width: 30, height: 60))
-        button.setImage(#imageLiteral(resourceName: "FlashlightOff"), for: .normal)
-        button.autoresizingMask = [.flexibleRightMargin, .flexibleLeftMargin, .flexibleBottomMargin]
-        button.addTarget(self, action: #selector(toggleFlash(sender:)), for: .touchUpInside)
-        self.addSubview(button)
+//        let button = UIButton.init(frame: CGRect(x: self.frame.width - 40, y: 50, width: 30, height: 60))
+//        button.setImage(#imageLiteral(resourceName: "FlashlightOff"), for: .normal)
+//        button.autoresizingMask = [.flexibleRightMargin, .flexibleLeftMargin, .flexibleBottomMargin]
+//        button.addTarget(self, action: #selector(toggleFlash(sender:)), for: .touchUpInside)
+//        self.addSubview(button)
     }
     
     public init(frame: CGRect, style: HSDefaultScanViewStyle) {

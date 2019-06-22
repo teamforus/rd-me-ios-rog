@@ -3,7 +3,7 @@
 "0RO-Fr-8TE.text" = "New";
 
 /* Class = "UITabBarItem"; title = "Vouchers"; ObjectID = "0sK-og-sJQ"; */
-"0sK-og-sJQ.title" = "Vouchers";
+"0sK-og-sJQ.title" = "Wallet";
 
 /* Class = "UILabel"; text = "5 records"; ObjectID = "2oP-0e-z3e"; */
 "2oP-0e-z3e.text" = "5 records";
@@ -39,7 +39,7 @@
 "Nsu-ze-VqX.text" = "OFFICE";
 
 /* Class = "UILabel"; text = "Vouchers"; ObjectID = "P1l-mS-jj2"; */
-"P1l-mS-jj2.text" = "Vouchers";
+"P1l-mS-jj2.text" = "Wallet";
 
 /* Class = "UILabel"; text = "2 dagen geldig"; ObjectID = "PaZ-DR-I5J"; */
 "PaZ-DR-I5J.text" = "2 days valid";
