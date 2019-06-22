@@ -16,7 +16,7 @@ struct Record{
     var order : Int!
     var key : String!
     var recordCategoryId : Int!
-    var validations : [Validations]!
+    var validations : [String]!
 }
 
 extension Record: JSONDecodable{

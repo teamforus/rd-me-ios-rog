@@ -34,6 +34,7 @@ class WalletViewController: MABaseViewController, AppLockerDelegate, NVActivityI
     @IBOutlet var emptyTextLabe: UILabel!
     @IBOutlet weak var segmentController: HBSegmentedControl!
     @IBOutlet weak var segmentView: UIView!
+    var walletCase : WalletCase! = WalletCase.token
     var firstTimeEnter: Bool!
     let presenter: Presentr = {
         let presenter = Presentr(presentationType: .alert)
@@ -126,7 +127,16 @@ class WalletViewController: MABaseViewController, AppLockerDelegate, NVActivityI
     
     @objc func segmentSelected(sender:HBSegmentedControl) {
        
-        
+        if (sender.selectedIndex == 0 ){
+            walletCase = WalletCase.token
+            self.tableView.reloadData()
+        }else if (sender.selectedIndex == 1){
+            walletCase = WalletCase.assets
+            self.tableView.reloadData()
+        }else if (sender.selectedIndex == 2){
+            walletCase = WalletCase.passes
+            self.tableView.reloadData()
+        }
     }
     
     @objc fileprivate func sendPushNotificationToke(notification: NSNotification){
@@ -189,14 +199,62 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource, Swip
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if walletCase != .token {
+            return 2
+        }else if walletCase == .passes{
+            return 2
+        }
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MAWaletVoucherTableViewCell
-        cell.selectionStyle = .none
-//        cell.voucher = vouhers[indexPath.row] as? Voucher
+        var cell : UITableViewCell! = nil
         
+        switch walletCase {
+        case .token?:
+            let cellWalletSecond = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! WalletSecondTableViewCell
+            if indexPath.row == 0{
+                cellWalletSecond.priceLabel.text = "10,509876"
+                cellWalletSecond.typeCoinLabel.text = "ETH"
+            } else if indexPath.row == 1{
+                cellWalletSecond.priceLabel.text = "200,85"
+                cellWalletSecond.typeCoinLabel.text = "BAT"
+                cellWalletSecond.typeCoinImageView.image = UIImage.init(named: "bat")
+            }else if indexPath.row == 2{
+                cellWalletSecond.priceLabel.text = "225,57"
+                cellWalletSecond.typeCoinLabel.text = "ERC-20 Token"
+                cellWalletSecond.typeCoinImageView.image = UIImage.init(named: "erc")
+            }
+            
+            cell = cellWalletSecond
+            break
+            
+        case .assets?:
+            let cellWalletOwner = tableView.dequeueReusableCell(withIdentifier: "cell3", for: indexPath) as! MAWalletOwnerTableViewCell
+            cellWalletOwner.delegate = self
+            if indexPath.row == 0{
+                cellWalletOwner.headNameLabel.text = "APPARTEMENT"
+                cellWalletOwner.productNameLabel.text = "Groningen"
+                cellWalletOwner.marcLabel.text = "Ulgersmaweg 35, 9731BK"
+            }else if indexPath.row == 1{
+                cellWalletOwner.headNameLabel.text = "AUTO"
+                cellWalletOwner.productNameLabel.text = "Mercedes G-Class"
+                cellWalletOwner.marcLabel.text = "9731 EU"
+                cellWalletOwner.typeIconImage.image = UIImage.init(named: "sportsCar")
+            }
+            cell = cellWalletOwner
+            
+        default:
+            let cellWallet = tableView.dequeueReusableCell(withIdentifier: "cell4", for: indexPath) as! MAWaletVoucherTableViewCell
+            if indexPath.row == 0{
+                cellWallet.voucherTitleLabel.text = "Kindpakket"
+                cellWallet.priceLabel.text = "€ 122,67"
+            }else if indexPath.row == 1{
+                cellWallet.voucherTitleLabel.text = "Meedoen"
+                cellWallet.voucherImage.image = #imageLiteral(resourceName: "Logo-Nijmgen-4-3")
+            }
+            cell = cellWallet
+        }
         return cell
     }
     
