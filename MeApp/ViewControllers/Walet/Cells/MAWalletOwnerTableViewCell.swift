@@ -29,6 +29,7 @@ class MAWalletOwnerTableViewCell: SwipeTableViewCell {
         
         maskLayer.path = path.cgPath
         self.headView.layer.mask = maskLayer
+        selectionStyle = .none
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

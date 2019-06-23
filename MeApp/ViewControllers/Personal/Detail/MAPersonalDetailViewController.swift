@@ -59,7 +59,7 @@ class MAPersonalDetailViewController: MABaseViewController{
         if record.validations.count == 0{
             self.tableView.isHidden = true
         }else{
-             self.tableView.isHidden = false
+             self.tableView.isHidden = true
         }
 //        if reachablity.connection != .none{
 //            ValidatorsRequest.getValidatorRequestList(uuid:record.completion: { (response, statusCode) in

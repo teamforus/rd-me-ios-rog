@@ -160,8 +160,6 @@ class MAQRCodeScannerViewController: HSScanViewController , HSScanViewController
     func shareValidationRecord(code:String){
         self.scanWorker.stop()
         
-        let alertController: UIAlertController = UIAlertController(title: "Login QR", message: "You sure you wan't to login this device?".localized() , preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "YES", style: .default, handler: { (action) in
             let parameter: Parameters = ["auth_token" : code]
             AuthorizeTokenRequest.authorizeToken(parameter: parameter, completion: { (response, statusCode) in
                 if response.success == nil {
@@ -200,15 +198,7 @@ class MAQRCodeScannerViewController: HSScanViewController , HSScanViewController
             }, failure: { (error) in
                 AlertController.showError(vc:self)
             })
-        }))
         
-        alertController.addAction(UIAlertAction(title: "NO", style: .cancel, handler: { (action) in
-            self.scanWorker.start()
-        }))
-        
-        self.present(alertController, animated: true)
-        
-            let alert: UIAlertController
         
         
     }

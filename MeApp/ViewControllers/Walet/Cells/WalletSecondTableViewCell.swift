@@ -22,6 +22,7 @@ class WalletSecondTableViewCell: UITableViewCell {
         self.viewBody.layer.shadowOpacity = 0.07
         self.viewBody.layer.shadowRadius = 10.0
         self.viewBody.layer.masksToBounds = false
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -46,6 +46,7 @@ class MAWaletVoucherTableViewCell: SwipeTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         
     }
     

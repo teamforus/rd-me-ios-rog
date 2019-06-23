@@ -50,7 +50,7 @@ class MAApproveShareViewController: UIViewController {
     
     @IBAction func cancel(_ sender: UIButton) {
         
-        self.dismiss(animated: true)
+        self.delegate.share()
         
     }
 

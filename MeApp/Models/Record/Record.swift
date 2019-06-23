@@ -190,7 +190,7 @@ class RecordsRequest {
         ]
         
         
-        Alamofire.request(BaseURL.baseURL(url: "identity/proxy/token/confirm/\(token)"), method: .post, parameters:nil ,encoding: JSONEncoding.default, headers: headers).responseJSON {
+        Alamofire.request(BaseURL.baseURL(url: "identity/proxy/authorize/token/confirm/\(token)"), method: .post, parameters:nil ,encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
             switch response.result {
             case .success:

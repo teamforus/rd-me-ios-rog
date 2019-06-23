@@ -15,11 +15,14 @@ class WaletTableViewCell: SwipeTableViewCell {
     @IBOutlet weak var validatioDays: UILabel!
     @IBOutlet weak var priceUILabel: UILabel!
     @IBOutlet weak var bodyUIView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         bodyUIView.layer.cornerRadius = 5.0
-        
+        selectionStyle = .none
     }
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
