@@ -3,7 +3,7 @@
 "0RO-Fr-8TE.text" = "Nieuwe";
 
 /* Class = "UITabBarItem"; title = "Vouchers"; ObjectID = "0sK-og-sJQ"; */
-"0sK-og-sJQ.title" = "Eigenschappen";
+"0sK-og-sJQ.title" = "Wallet";
 
 /* Class = "UILabel"; text = "5 eigenschappen"; ObjectID = "2oP-0e-z3e"; */
 "2oP-0e-z3e.text" = "5 eigenschappen";
@@ -15,7 +15,7 @@
 "6mM-3T-qfG.text" = "Verzoek";
 
 /* Class = "UITabBarItem"; title = "Eigenschappen"; ObjectID = "7le-DV-ctU"; */
-"7le-DV-ctU.title" = "Profiel";
+"7le-DV-ctU.title" = "Walet";
 
 /* Class = "UILabel"; text = "300 €"; ObjectID = "9C1-7W-qbu"; */
 "9C1-7W-qbu.text" = "300 €";
@@ -39,7 +39,7 @@
 "Nsu-ze-VqX.text" = "VESTIGING";
 
 /* Class = "UILabel"; text = "Vouchers"; ObjectID = "P1l-mS-jj2"; */
-"P1l-mS-jj2.text" = "Eigenschappen";
+"P1l-mS-jj2.text" = "Walet";
 
 /* Class = "UILabel"; text = "2 dagen geldig"; ObjectID = "PaZ-DR-I5J"; */
 "PaZ-DR-I5J.text" = "2 dagen geldig";
@@ -72,5 +72,5 @@
 "s5P-PY-YuN.text" = "Kindpakket";
 
 /* Class = "UITabBarItem"; title = "Eigenschappen"; ObjectID = "vmo-CF-lCr"; */
-"vmo-CF-lCr.title" = "Profiel";
+"vmo-CF-lCr.title" = "Eigenschappen";
 
