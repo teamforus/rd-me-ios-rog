@@ -238,7 +238,7 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource, Swip
                 cellWalletOwner.marcLabel.text = "Ulgersmaweg 35, 9731BK"
             }else if indexPath.row == 1{
                 cellWalletOwner.headNameLabel.text = "AUTO"
-                cellWalletOwner.productNameLabel.text = "Mercedes G-Class"
+                cellWalletOwner.productNameLabel.text = "Tesla Model 3"
                 cellWalletOwner.marcLabel.text = "9731 EU"
                 cellWalletOwner.typeIconImage.image = UIImage.init(named: "sportsCar")
             }
@@ -247,7 +247,7 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource, Swip
         default:
             let cellWallet = tableView.dequeueReusableCell(withIdentifier: "cell4", for: indexPath) as! MAWaletVoucherTableViewCell
             if indexPath.row == 0{
-                cellWallet.voucherTitleLabel.text = "Kindpakket"
+                cellWallet.voucherTitleLabel.text = "Zwemregeling"
                 cellWallet.priceLabel.text = "€ 122,67"
             }else if indexPath.row == 1{
                 cellWallet.voucherTitleLabel.text = "Meedoen"
